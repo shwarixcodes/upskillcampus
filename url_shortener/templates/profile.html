@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TapShort | Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <h1>🔗 TapShort</h1>
+            <a href="{{ url_for('home') }}" class="btn">Home</a>
+            <a href="{{ url_for('profile') }}" class="btn">Profile</a>
+            <a href="{{ url_for('history') }}" class="btn">My History</a>
+            <a href="{{ url_for('about') }}" class="btn">About Us</a>
+            <a href="{{ url_for('logout') }}" class="btn">Logout</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="card">
+                <h2>Welcome, {{ email }}</h2>
+                <p><strong>Total URLs Shortened:</strong> {{ total_urls }}</p>
+                <p><strong>Total Clicks Received:</strong> {{ total_clicks }}</p>
+            </div>
+
+            <div class="card">
+                <h2>Recently Shortened URLs</h2>
+                <table>
+                    <tr>
+                        <th>Short URL</th>
+                        <th>Original URL</th>
+                        <th>Clicks</th>
+                    </tr>
+                    {% for url in urls %}
+                    <tr>
+                        <td><a href="{{ url[0] }}" target="_blank">{{ url[1] }}</a></td>
+                        <td>{{ url[0] }}</td>
+                        <td>{{ url[2] }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

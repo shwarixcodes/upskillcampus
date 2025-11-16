@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TapShort | About Us</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <h1>🔗 TapShort</h1>
+            <a href="{{ url_for('home') }}" class="btn">Home</a>
+            <a href="{{ url_for('profile') }}" class="btn">Profile</a>
+            <a href="{{ url_for('history') }}" class="btn">My History</a>
+            <a href="{{ url_for('about') }}" class="btn">About Us</a>
+            <a href="{{ url_for('logout') }}" class="btn">Logout</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="card">
+                <h2>About TapShort</h2>
+                <p>TapShort is a user-friendly URL shortener designed to simplify link sharing and tracking. Quickly shorten long URLs and monitor click statistics effortlessly.</p>
+            </div>
+
+            <div class="card">
+                <h2>Key Features</h2>
+                <ul>
+                    <li>Shorten long URLs instantly</li>
+                    <li>Track clicks and view history</li>
+                    <li>User profiles with statistics</li>
+                    <li>Secure login and signup system</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>About the Developer</h2>
+                <p>Developed by Dnyaneshwari Sunil Abhang. Contact: <a href="mailto:dnyaneshwariabhang2005@email.com">dnyaneshwariabhang2005@email.com</a></p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

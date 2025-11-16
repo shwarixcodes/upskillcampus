@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TapShort | URL Shortener</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <h1>🔗 TapShort</h1>
+            <a href="{{ url_for('home') }}" class="btn">Home</a>
+            <a href="{{ url_for('profile') }}" class="btn">Profile</a>
+            <a href="{{ url_for('history') }}" class="btn">My History</a>
+            <a href="{{ url_for('about') }}" class="btn">About Us</a>
+            <a href="{{ url_for('logout') }}" class="btn">Logout</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="card">
+                <h2>Tap it. Short it. Share it. 🚀</h2>
+                <form action="{{ url_for('shorten') }}" method="POST">
+                    <input type="text" name="long_url" placeholder="Paste your long URL here..." required>
+                    <button type="submit" class="btn-submit">Shorten URL</button>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

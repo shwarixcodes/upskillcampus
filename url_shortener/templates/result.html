@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Short URL Created | TapShort</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            background: linear-gradient(120deg, #182848, #4b6cb7);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .result-card {
+            background: white;
+            color: #333;
+            border-radius: 20px;
+            padding: 40px;
+            width: 400px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            color: #4b6cb7;
+            margin-bottom: 25px;
+        }
+
+        .url-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #f4f6f8;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .url-box input {
+            width: 75%;
+            border: none;
+            outline: none;
+            background: none;
+            font-size: 1rem;
+        }
+
+        .url-box button {
+            background: #4b6cb7;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .url-box button:hover {
+            background: #182848;
+        }
+
+        .actions {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        a.open-link, a.back-home {
+            display: inline-block;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 12px 25px;
+            border-radius: 25px;
+            transition: 0.3s;
+        }
+
+        a.open-link {
+            background: #ff7e5f;
+            color: white;
+        }
+
+        a.open-link:hover {
+            background: #feb47b;
+        }
+
+        a.back-home {
+            background: #4b6cb7;
+            color: white;
+        }
+
+        a.back-home:hover {
+            background: #182848;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-card">
+        <h1>✅ Your Short URL is Ready!</h1>
+
+        <div class="url-box">
+            <input type="text" value="{{ short_url }}" id="shortUrl" readonly>
+            <button onclick="copyUrl()">📋 Copy</button>
+        </div>
+
+        <div class="actions">
+            <a href="{{ short_url }}" target="_blank" class="open-link">🌐 Open Shortened Link</a>
+            <a href="/" class="back-home">⬅ Back to Home</a>
+        </div>
+    </div>
+
+    <script>
+        function copyUrl() {
+            const copyText = document.getElementById("shortUrl");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); // For mobile
+            navigator.clipboard.writeText(copyText.value)
+                .then(() => alert("✅ Copied: " + copyText.value))
+                .catch(() => alert("❌ Failed to copy"));
+        }
+    </script>
+</body>
+</html>
